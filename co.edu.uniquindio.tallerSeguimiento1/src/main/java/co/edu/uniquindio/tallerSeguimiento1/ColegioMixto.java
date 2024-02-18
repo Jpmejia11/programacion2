@@ -23,4 +23,5 @@ public class ColegioMixto extends Colegio{
     public String toString() {
         return super.toString() + ", Estudiantes: " + numeroEstudiantes;
     }
+
 }

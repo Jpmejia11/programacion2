@@ -1,5 +1,6 @@
 package co.edu.uniquindio.tallerSeguimiento1;
 
+import java.awt.desktop.SystemEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +10,15 @@ public class Main {
         colegios.add(new ColegioPrivado());
         colegios.add(new ColegioPublico());
         colegios.add(new ColegioMixto());
+        colegios.add(new ColegioUniversitarios());
         imprimirNumeroEstudiantes(colegios);
 
-        }
+    }
+
     public static void imprimirNumeroEstudiantes(List<Colegio> colegios) {
-        for (Colegio colegio : colegios){
+        for (Colegio colegio : colegios) {
             System.out.println(colegio.getNumeroEstudiantes());
         }
+
     }
 }

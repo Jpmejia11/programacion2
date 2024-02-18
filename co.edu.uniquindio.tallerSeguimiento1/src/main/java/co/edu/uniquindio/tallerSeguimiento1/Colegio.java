@@ -7,9 +7,9 @@ public abstract class Colegio {
     protected String rector;
 
     public Colegio(String nombre, String ubicacion, String rector) {
-        this.nombre = nombre;
-        this.ubicacion = ubicacion;
-        this.rector = rector;
+            this.nombre = nombre;
+            this.ubicacion = ubicacion;
+            this.rector = rector;
     }
 
     public String getNombre() {
@@ -30,5 +30,6 @@ public abstract class Colegio {
     public String toString() {
         return "Colegio: " + nombre + ", Ubicación: " + ubicacion + ", Rector: " + rector;
     }
- }
+
+  }
 

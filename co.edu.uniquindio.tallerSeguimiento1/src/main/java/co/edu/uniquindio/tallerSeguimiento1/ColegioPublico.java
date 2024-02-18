@@ -17,7 +17,7 @@ public class ColegioPublico extends Colegio {
 
     @Override
     public int getNumeroEstudiantes() {
-        return 800;
+        return 1000;
     }
 
     @Override
