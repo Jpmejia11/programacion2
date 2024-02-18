@@ -17,4 +17,6 @@ public class Colegio {
     public int getPuestos() {
         return puestos;
     }
+
 }
+
