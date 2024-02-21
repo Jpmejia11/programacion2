@@ -2,7 +2,7 @@ package co.edu.uniquindio.empresaTransporte;
 
 public class EmpresaTransporte {
 
-    private String nombreEmpresa;
+    protected String nombreEmpresa;
 
     public EmpresaTransporte(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
