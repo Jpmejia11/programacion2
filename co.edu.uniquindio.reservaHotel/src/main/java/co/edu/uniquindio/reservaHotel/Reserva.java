@@ -5,6 +5,7 @@ public class Reserva extends Habitacion{
     protected String fechaEntrada;
     protected String fechaSalida;
 
+
     public Reserva(String nombre, String direccion, String correo, int telefono, int numHabitacion, String tipoHabitacion, double precioHabitacion, String fechaEntrada, String fechaSalida) {
         super(nombre, direccion, correo, telefono, numHabitacion, tipoHabitacion, precioHabitacion);
         this.fechaEntrada = fechaEntrada;

@@ -9,6 +9,15 @@ public class Main {
         hotels.add(new Reserva());
         imprimirNumReservasActivas(hotels);
 
+       /*
+        List<Cliente> clientes = new ArrayList<>();
+        clientes.add(new Cliente());
+        imprimirNombreCliente(clientes);
+
+       */
+       }
+
+    private static void imprimirNombreCliente(List<Cliente> clientes) {
     }
 
     public static void imprimirNumReservasActivas(List<Hotel> hotels) {

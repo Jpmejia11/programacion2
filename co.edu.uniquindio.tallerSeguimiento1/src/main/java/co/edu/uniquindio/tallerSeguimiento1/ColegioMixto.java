@@ -10,6 +10,7 @@ public class ColegioMixto extends Colegio{
     }
 
     public ColegioMixto() {
+
         super("Inmaculada","Avenida 19","Madre Calculta");
     }
 

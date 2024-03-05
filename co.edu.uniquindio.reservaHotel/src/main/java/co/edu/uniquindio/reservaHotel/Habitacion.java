@@ -6,6 +6,7 @@ public class Habitacion extends Hotel {
     protected String tipoHabitacion;
     protected double precioHabitacion;
 
+
     public Habitacion(String nombre, String direccion, String correo, int telefono, int numHabitacion, String tipoHabitacion, double precioHabitacion) {
         super(nombre, direccion, correo, telefono);
         this.numHabitacion = numHabitacion;
@@ -39,6 +40,6 @@ public class Habitacion extends Hotel {
 
     @Override
     public int getNumReservasActivas() {
-        return 4;
+        return 5;
     }
 }

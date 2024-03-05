@@ -1,16 +1,21 @@
 package co.edu.uniquindio.reservaHotel;
 
-public class Cliente extends Reserva{
+public class Cliente{
 
 protected String nombreCliente;
 protected int dni;
 protected int numReservasActivas;
 
+
+
     public Cliente(String nombre, String direccion, String correo, int telefono, int numHabitacion, String tipoHabitacion, double precioHabitacion, String fechaEntrada, String fechaSalida, String nombreCliente, int dni, int numReservasActivas) {
-        super(nombre, direccion, correo, telefono, numHabitacion, tipoHabitacion, precioHabitacion, fechaEntrada, fechaSalida);
         this.nombreCliente = nombreCliente;
         this.dni = dni;
         this.numReservasActivas = numReservasActivas;
+    }
+
+    public Cliente() {
+        System.out.println("Juan");
     }
 
     public String getNombreCliente() {
