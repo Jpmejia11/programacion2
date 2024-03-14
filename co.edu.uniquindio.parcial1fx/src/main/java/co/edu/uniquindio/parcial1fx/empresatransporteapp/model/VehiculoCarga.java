@@ -1,32 +1,33 @@
 package co.edu.uniquindio.parcial1fx.empresatransporteapp.model;
 
-public class VehiculoCarga extends Vehiculo {
+import java.util.ArrayList;
 
+public class VehiculoCarga extends Vehiculo{
     private double capacidadCarga;
-    private int numeroEjes;
+    private int numEjes;
 
     public VehiculoCarga() {
     }
 
-    public VehiculoCarga(String placa, String modelo, String marca, String color, double capacidadCarga, int numeroEjes) {
-        super(placa, modelo, marca, color);
+    public VehiculoCarga(String placa, String modelo, String marca, String color, Propietario propietarioAsociado, ArrayList<Propietario> listaPropietariosAsociados, double capacidadCarga, int numEjes) {
+        super(placa, modelo, marca, color, propietarioAsociado, listaPropietariosAsociados);
         this.capacidadCarga = capacidadCarga;
-        this.numeroEjes = numeroEjes;
+        this.numEjes = numEjes;
     }
 
     public double getCapacidadCarga() {
         return capacidadCarga;
     }
 
-    public void setCapacidadCarga(double capacidadCarga) {
-        this.capacidadCarga = capacidadCarga;
+    public int getNumEjes() {
+        return numEjes;
     }
 
-    public int getNumeroEjes() {
-        return numeroEjes;
+    @Override
+    public String toString() {
+        return super.toString() + '\n' + "VehiculoCarga: " +
+                "capacidadCarga = " + capacidadCarga +
+                ", numEjes = " + numEjes;
     }
 
-    public void setNumeroEjes(int numeroEjes) {
-        this.numeroEjes = numeroEjes;
-    }
 }

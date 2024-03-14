@@ -4,42 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Propietario {
-
-    private String nombre;
-    private String numeroIdentificacion;
+    private String nombrePropietario;
+    private String cedula;
     private String email;
-    private String numeroCelular;
-    private Vehiculo vehiculo;
-    private List<VehiculoCarga> listaVehiculosPropietarios = new ArrayList<>();
-    private List<VehiculoPasajero> listaUsuariosPropietarios = new ArrayList<>();
+    private String celular;
+    private Vehiculo vehiculoPrincipal;
+    private ArrayList<Vehiculo> listaVehiculosAsociados = new ArrayList<>();
 
     public Propietario() {
     }
 
-    public Propietario(String nombre, String numeroIdentificacion, String email, String numeroCelular, Vehiculo vehiculo, List<VehiculoCarga> listaVehiculosPropietarios, List<VehiculoPasajero> listaUsuariosPropietarios) {
-        this.nombre = nombre;
-        this.numeroIdentificacion = numeroIdentificacion;
-        this.email = email;
-        this.numeroCelular = numeroCelular;
-        this.vehiculo = vehiculo;
-        this.listaVehiculosPropietarios = listaVehiculosPropietarios;
-        this.listaUsuariosPropietarios = listaUsuariosPropietarios;
+    public Vehiculo getVehiculoPrincipal() {
+        return vehiculoPrincipal;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setVehiculoPrincipal(Vehiculo vehiculoPrincipal) {
+        this.vehiculoPrincipal = vehiculoPrincipal;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getNombrePropietario() {
+        return nombrePropietario;
     }
 
-    public String getNumeroIdentificacion() {
-        return numeroIdentificacion;
+    public void setNombrePropietario(String nombrePropietario) {
+        this.nombrePropietario = nombrePropietario;
     }
 
-    public void setNumeroIdentificacion(String numeroIdentificacion) {
-        this.numeroIdentificacion = numeroIdentificacion;
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getEmail() {
@@ -50,35 +46,34 @@ public class Propietario {
         this.email = email;
     }
 
-    public String getNumeroCelular() {
-        return numeroCelular;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setNumeroCelular(String numeroCelular) {
-        this.numeroCelular = numeroCelular;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
+    public List<Vehiculo> getVehiculoList() {
+        return listaVehiculosAsociados;
     }
 
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
+    public ArrayList<Vehiculo> getListaVehiculosAsociados() {
+        return listaVehiculosAsociados;
     }
 
-    public List<VehiculoCarga> getListaVehiculosPropietarios() {
-        return listaVehiculosPropietarios;
+    public void setListaVehiculosAsociados(ArrayList<Vehiculo> listaVehiculosAsociados) {
+        this.listaVehiculosAsociados = listaVehiculosAsociados;
     }
 
-    public void setListaVehiculosPropietarios(List<VehiculoCarga> listaVehiculosPropietarios) {
-        this.listaVehiculosPropietarios = listaVehiculosPropietarios;
-    }
-
-    public List<VehiculoPasajero> getListaUsuariosPropietarios() {
-        return listaUsuariosPropietarios;
-    }
-
-    public void setListaUsuariosPropietarios(List<VehiculoPasajero> listaUsuariosPropietarios) {
-        this.listaUsuariosPropietarios = listaUsuariosPropietarios;
+    @Override
+    public String toString() {
+        return "Asociado: " +
+                "vehiculoPrincipal = " + vehiculoPrincipal +
+                ", nombre = " + nombrePropietario +
+                ", numIdentificacion = " + cedula +
+                ", email = " + email +
+                ", numCelular = '" + celular +
+                ", vehiculoAsociadoList = " + listaVehiculosAsociados;
     }
 }

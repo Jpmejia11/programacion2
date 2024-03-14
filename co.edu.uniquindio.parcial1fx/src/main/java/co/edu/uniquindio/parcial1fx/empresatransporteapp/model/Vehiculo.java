@@ -1,61 +1,64 @@
 package co.edu.uniquindio.parcial1fx.empresatransporteapp.model;
 
-public abstract class Vehiculo {
+import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.builder.VehiculoBuilder;
+import java.util.ArrayList;
 
+public class Vehiculo {
     private String placa;
     private String modelo;
     private String marca;
     private String color;
+    private Propietario propietarioAsociado;
+    private ArrayList<Propietario> listaPropietariosAsociados = new ArrayList<>();
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String placa, String modelo, String marca, String color) {
+    public Vehiculo(String placa, String modelo, String marca, String color, Propietario propietarioAsociado, ArrayList<Propietario> listaPropietariosAsociados) {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
         this.color = color;
+        this.propietarioAsociado = propietarioAsociado;
+        this.listaPropietariosAsociados = listaPropietariosAsociados;
+    }
+
+    public static VehiculoBuilder builder(){
+        return new VehiculoBuilder();
     }
 
     public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
     public String getModelo() {
         return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public Propietario getPropietarioAsociado() {
+        return propietarioAsociado;
+    }
+
+    public ArrayList<Propietario> getListaPropietariosAsociados() {
+        return listaPropietariosAsociados;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "placa='" + placa + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", marca='" + marca + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+        return "Vehiculo: " +
+                "placa = " + placa +
+                ", modelo = " + modelo +
+                ", marca = " + marca +
+                ", color = " + color +
+                ", propietarioAsociado = " + propietarioAsociado +
+                ", listaPropietariosAsociados = " + listaPropietariosAsociados;
     }
 }

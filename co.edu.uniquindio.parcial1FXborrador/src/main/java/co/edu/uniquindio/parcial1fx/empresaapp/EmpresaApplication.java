@@ -1,4 +1,4 @@
-package co.edu.uniquindio.parcial1fx.empresatransporteapp;
+package co.edu.uniquindio.parcial1fx.empresaapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class EmpresaApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(EmpresaApplication.class.getResource("Empresa.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("LA CARRETA");
         stage.setScene(scene);
         stage.show();
     }
