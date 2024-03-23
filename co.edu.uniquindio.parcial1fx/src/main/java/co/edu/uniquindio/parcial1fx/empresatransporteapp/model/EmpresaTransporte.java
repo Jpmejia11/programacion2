@@ -63,6 +63,25 @@ public class EmpresaTransporte {
         this.listaUsuario = listaUsuario;
     }
 
+    public boolean crearPropietario(Propietario nuevoPropietario){
+        Propietario propietarioEncontrado = obtenerPropietario();
+        if (propietarioEncontrado ==null){
+            Propietario propietario = getBuildPropietario();
+            getListaPropietario().add(propietario);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private Propietario getBuildPropietario() {
+        return getBuildPropietario();
+    }
+
+    private Propietario obtenerPropietario() {
+        return obtenerPropietario();
+    }
+
     public boolean crearVehiclo(String placa, String modelo, String marca, String color){
         Vehiculo vehiculoEncontrado = obtenerVehiculo(placa);
         if (vehiculoEncontrado == null) {
@@ -74,7 +93,7 @@ public class EmpresaTransporte {
         }
 
     }
-    private Vehiculo getBuildVehiculo(String placa, String modelo, String marca, String color) {
+        private Vehiculo getBuildVehiculo(String placa, String modelo, String marca, String color) {
         return Vehiculo.builder()
                 .placa(placa)
                 .modelo(modelo)

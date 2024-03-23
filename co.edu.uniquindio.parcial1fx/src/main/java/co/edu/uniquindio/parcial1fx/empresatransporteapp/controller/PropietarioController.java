@@ -17,4 +17,8 @@ public class PropietarioController {
     public List<Propietario> obtenerPropietario() {
         return modelFactory.obtenerPropietario();
     }
+
+    public List<Propietario> crearPropietario(Propietario propietario){
+        return modelFactory.obtenerPropietario();
+    }
 }

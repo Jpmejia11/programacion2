@@ -20,6 +20,10 @@ public class Propietario {
         return new PropietarioBuilder();
     }
 
+    public static boolean crearPropietario(Propietario propietario) {
+        return crearPropietario(propietario);
+    }
+
     public Vehiculo getVehiculoPrincipal() {
         return vehiculoPrincipal;
     }

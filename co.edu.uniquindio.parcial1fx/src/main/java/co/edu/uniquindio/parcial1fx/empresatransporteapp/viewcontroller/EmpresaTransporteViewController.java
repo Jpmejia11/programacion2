@@ -134,11 +134,13 @@ public class EmpresaTransporteViewController {
 
     @FXML
     private TableColumn<Propietario, String> tcCelular;
+
     @FXML
     void onAgregarMetodoUsuario(ActionEvent event) {
         agregarNuevoUsuario();
 
     }
+
     @FXML
     void onAgregarMetodoVehiculoCarga(ActionEvent event) {
         agregarVehiculoCarga();
@@ -176,15 +178,41 @@ public class EmpresaTransporteViewController {
     }
 
     private Propietario agregarNuevoPropietario() {
+        if (validarFormulario()) {
+            Propietario propietario = construirDatosPropietario();
+            if (Propietario.crearPropietario(propietario)) {
+                listaPropietario.add(propietario);
+                mostrarMensaje("Notificación cliente", "Cliente creado", "El cliente se ha creado con éxito", Alert.AlertType.INFORMATION);
+                limpiarCamposEmpleado();
+            } else {
+                mostrarMensaje("Notificación cliente", "Cliente no creado", "El cliente no se ha creado con éxito", Alert.AlertType.ERROR);
+            }
+        } else {
+            mostrarMensaje("Notificación cliente", "Cliente no creado", "Los datos ingresados son invalidos", Alert.AlertType.ERROR);
+        }
+        return null;
+    }
 
+    private void limpiarCamposEmpleado() {
+    }
 
+    private void mostrarMensaje(String notificaciónCliente, String clienteCreado, String s, Alert.AlertType alertType) {
+    }
 
-       // propietario.setNombrePropietario(txtNombrePropietario.getText());
+    private boolean validarFormulario() {
+        if (txtNombrePropietario.getText().isEmpty()){
+            return false;
+        }
+
+            return true;
+    }
+
+    // propietario.setNombrePropietario(txtNombrePropietario.getText());
        // propietario.setCedula(txtCedulaPropietario.getText());
        // propietario.setCelular(txtCelularPropietario.getText());
        // propietario.setEmail(txtEmailPropietario.getText());
         // txtResultadoPropietario.setText(propietario.toString());
-    }
+
 
     private Propietario construirDatosPropietario() {
 
