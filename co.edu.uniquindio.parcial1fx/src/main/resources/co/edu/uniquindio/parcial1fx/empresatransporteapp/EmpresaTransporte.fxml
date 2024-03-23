@@ -35,17 +35,17 @@
                                           <TextField fx:id="txtEmailPropietario" layoutX="381.0" layoutY="23.0" />
                                           <Label layoutX="322.0" layoutY="91.0" text="Celular:" />
                                           <TextField fx:id="txtCelularPropietario" layoutX="381.0" layoutY="87.0" />
-                                          <Button fx:id="btnAgregarPropietario" layoutX="224.0" layoutY="138.0" mnemonicParsing="false" onAction="#onAgregarPropietario" text="Agregar propietario" />
+                                          <Button fx:id="btnAgregarPropietario" layoutX="241.0" layoutY="153.0" mnemonicParsing="false" onAction="#onAgregarPropietario" text="Agregar propietario" />
                                        </children>
                                     </AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="582.0">
                                        <children>
                                           <TableView fx:id="tablePropietario" layoutX="2.0" layoutY="1.0" prefHeight="224.0" prefWidth="663.0">
                                             <columns>
-                                              <TableColumn fx:id="tcNombre" prefWidth="257.0" text="Nombre" />
-                                              <TableColumn fx:id="tcCedula" minWidth="0.0" prefWidth="74.0" text="Cédula" />
+                                              <TableColumn fx:id="tcNombre" prefWidth="189.0" text="Nombre" />
+                                              <TableColumn fx:id="tcCedula" minWidth="0.0" prefWidth="142.0" text="Cédula" />
                                                 <TableColumn fx:id="tcEmail" prefWidth="182.0" text="Email" />
-                                                <TableColumn fx:id="tcelular" minWidth="0.0" prefWidth="147.0" text="Celular" />
+                                                <TableColumn fx:id="tcCelular" minWidth="0.0" prefWidth="149.0" text="Celular" />
                                             </columns>
                                           </TableView>
                                        </children>

@@ -9,6 +9,7 @@ import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.VehiculoTransport
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ModelFactory {
     private static ModelFactory modelFactory;
@@ -35,6 +36,16 @@ public class ModelFactory {
         propietario.setCedula("12345");
         propietario.setCelular("32000000");
         propietario.setEmail("andres@gmail.com");
+
+        Propietario propietario2 = new Propietario();
+
+        propietario.setNombrePropietario("Nicolas");
+        propietario.setCedula("10919999");
+        propietario.setCelular("31322323");
+        propietario.setEmail("Nicolas@uniquindio.co");
+
+        empresaTransporte.getListaPropietario().add(propietario);
+        empresaTransporte.getListaPropietario().add(propietario2);
 
         Usuario usuario = new Usuario();
         usuario.setNombreUsuario("Raul");
@@ -78,6 +89,10 @@ public class ModelFactory {
 
     public int calcularMayoresEdad(){
         return empresaTransporte.calcularMayoresEdad();
+    }
+
+    public List<Propietario> obtenerPropietario() {
+         return empresaTransporte.getListaPropietario();
     }
 }
 

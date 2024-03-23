@@ -9,9 +9,9 @@ public class PropietarioBuilder {
     protected String email;
     protected String celular;
 
-    public PropietarioBuilder() {
+    //public PropietarioBuilder() {
 
-    }
+    //}
 
     public PropietarioBuilder nombrePropietario(String nombrePropietario) {
         this.nombrePropietario = nombrePropietario;
@@ -34,7 +34,10 @@ public class PropietarioBuilder {
     }
 
     public Propietario build(){
-        return new Propietario();
+
+    return new Propietario();
+
     }
 }
+
 

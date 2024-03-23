@@ -3,18 +3,23 @@ package co.edu.uniquindio.parcial1fx.empresatransporteapp.viewcontroller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import co.edu.uniquindio.parcial1fx.empresatransporteapp.controller.EmpresaTransporteController;
-import co.edu.uniquindio.parcial1fx.empresatransporteapp.factory.ModelFactory;
+import co.edu.uniquindio.parcial1fx.empresatransporteapp.controller.PropietarioController;
 import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.*;
 import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.builder.VehiculoCargaBuilder;
 import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.builder.VehiculoTransporteBuilder;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class EmpresaTransporteViewController {
 
-    EmpresaTransporteController empresaTransporteController;
+    PropietarioController propietarioController;
+
+    ObservableList<Propietario> listaPropietario = FXCollections.observableArrayList();
+    Propietario propietarioSeleccionado;
 
     @FXML
     private ResourceBundle resources;
@@ -116,19 +121,19 @@ public class EmpresaTransporteViewController {
     }
 
     @FXML
-    private TableView<EmpresaTransporte> tablePropietario;
+    private TableView<Propietario> tablePropietario;
 
     @FXML
-    private TableColumn<EmpresaTransporte, String> tcCedula;
+    private TableColumn<Propietario, String> tcCedula;
 
     @FXML
-    private TableColumn<EmpresaTransporte, String> tcEmail;
+    private TableColumn<Propietario, String> tcEmail;
 
     @FXML
-    private TableColumn<EmpresaTransporte, String> tcNombre;
+    private TableColumn<Propietario, String> tcNombre;
 
     @FXML
-    private TableColumn<EmpresaTransporte, String> tcelular;
+    private TableColumn<Propietario, String> tcCelular;
     @FXML
     void onAgregarMetodoUsuario(ActionEvent event) {
         agregarNuevoUsuario();
@@ -170,14 +175,27 @@ public class EmpresaTransporteViewController {
 
     }
 
-    private void agregarNuevoPropietario() {
-        Propietario propietario = new Propietario();
+    private Propietario agregarNuevoPropietario() {
 
-        propietario.setNombrePropietario(txtNombrePropietario.getText());
-        propietario.setCedula(txtCedulaPropietario.getText());
-        propietario.setCelular(txtCelularPropietario.getText());
-        propietario.setEmail(txtEmailPropietario.getText());
-        txtResultadoPropietario.setText(propietario.toString());
+
+
+       // propietario.setNombrePropietario(txtNombrePropietario.getText());
+       // propietario.setCedula(txtCedulaPropietario.getText());
+       // propietario.setCelular(txtCelularPropietario.getText());
+       // propietario.setEmail(txtEmailPropietario.getText());
+        // txtResultadoPropietario.setText(propietario.toString());
+    }
+
+    private Propietario construirDatosPropietario() {
+
+        Propietario propietario = construirDatosPropietario();
+        return Propietario.builder()
+                .nombrePropietario(txtNombrePropietario.getText())
+                .cedula(txtCedulaPropietario.getText())
+                .email(txtEmailPropietario.getText())
+                .celular(txtCelularPropietario.getText())
+                .build();
+
     }
 
     private void agregarNuevoUsuario(){
@@ -211,6 +229,8 @@ public class EmpresaTransporteViewController {
     }
 
     // El metodo agregarMetodoVehiculoTransporte calcula la cantidad de pasajeros del vehiculoTransporte
+
+    /*
       private void agregarMetodoVehiculoTransporte(){
         if(!txtPlacaVehiculoTransporte.getText().isEmpty()){
             String resultado = String.valueOf(modelFactory.calcularNumPasajeros(txtPlacaVehiculoTransporte.getText()));
@@ -226,8 +246,45 @@ public class EmpresaTransporteViewController {
         txtResultadoUsuario.setText("Usuario mayor edad" + resultadoEdad);
     }
 
+    */
     @FXML
     void initialize() {
-        empresaTransporteController = new EmpresaTransporteController();
+        propietarioController = new PropietarioController();
+        initView();
+    }
+
+    private void initView() {
+        initDataBinding();
+        obtenerPropietario();
+        tablePropietario.getItems().clear();
+        tablePropietario.setItems(listaPropietario);
+        listenerSelection();
+    }
+       private void obtenerPropietario() {
+
+        listaPropietario.addAll(propietarioController.obtenerPropietario());
+
+    }
+
+    private void initDataBinding() {
+        tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombrePropietario()));
+        tcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        tcCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCelular()));
+        tcEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
+
+        // En caso de que la variable sea un int se debe modificar la linea de la siguiente manera: SimpleStringProperty(String.valueOf(cellData.getValue().getCedula())));
+        // tcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+    }
+
+    private void listenerSelection() {
+
+        tablePropietario.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            propietarioSeleccionado = newSelection;
+            mostrarInformacionPropietario(propietarioSeleccionado);
+        });
+    }
+
+    private void mostrarInformacionPropietario(Propietario propietarioSeleccionado) {
+
     }
 }

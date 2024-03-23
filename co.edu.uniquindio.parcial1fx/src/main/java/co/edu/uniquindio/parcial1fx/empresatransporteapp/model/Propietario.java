@@ -1,5 +1,7 @@
 package co.edu.uniquindio.parcial1fx.empresatransporteapp.model;
 
+import co.edu.uniquindio.parcial1fx.empresatransporteapp.model.builder.PropietarioBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,10 @@ public class Propietario {
     private ArrayList<Vehiculo> listaVehiculosAsociados = new ArrayList<>();
 
     public Propietario() {
+    }
+
+    public static PropietarioBuilder builder() {
+        return new PropietarioBuilder();
     }
 
     public Vehiculo getVehiculoPrincipal() {
