@@ -6,15 +6,15 @@ import java.util.List;
 public class EmpresaTransporte {
 
     private String nombreEmpresa;
-
     private List<VehiculoCarga> listaVehiculoCarga = new ArrayList<>();
     private List<VehiculoTransporte> listaVehiculoTransporte = new ArrayList<>();
     private List<Propietario> listaPropietario = new ArrayList<>();
-
     private List<Usuario> listaUsuario = new ArrayList<>();
+    private List<Vehiculo> listaVehichulo = new ArrayList();
 
     public EmpresaTransporte() {
     }
+
     public String getNombreEmpresa() {
         return nombreEmpresa;
     }
@@ -25,6 +25,14 @@ public class EmpresaTransporte {
 
     public List<VehiculoCarga> getListaVehiculoCarga() {
         return listaVehiculoCarga;
+    }
+
+    public List<Vehiculo> getListaVehichulo() {
+        return listaVehichulo;
+    }
+
+    public void setListaVehichulo(List<Vehiculo> listaVehichulo) {
+        this.listaVehichulo = listaVehichulo;
     }
 
     public void setListaVehiculoCarga(List<VehiculoCarga> listaVehiculoCarga) {
@@ -53,5 +61,56 @@ public class EmpresaTransporte {
 
     public void setListaUsuario(List<Usuario> listaUsuario) {
         this.listaUsuario = listaUsuario;
+    }
+
+    public boolean crearVehiclo(String placa, String modelo, String marca, String color){
+        Vehiculo vehiculoEncontrado = obtenerVehiculo(placa);
+        if (vehiculoEncontrado == null) {
+            Vehiculo vehiculo = getBuildVehiculo(placa, modelo, marca, color);
+            getListaVehichulo().add(vehiculo);
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    private Vehiculo getBuildVehiculo(String placa, String modelo, String marca, String color) {
+        return Vehiculo.builder()
+                .placa(placa)
+                .modelo(modelo)
+                .marca(marca)
+                .color(color)
+                .build();
+    }
+
+    private Vehiculo obtenerVehiculo(String placa) {
+        Vehiculo vehiculo = null;
+        for (Vehiculo vehiculo1: getListaVehichulo()){
+            if(vehiculo1.getPlaca().equalsIgnoreCase(placa)){
+                vehiculo = vehiculo1;
+                break;
+            }
+        }
+        return vehiculo;
+    }
+
+    public int calcularNumPasajeros(String placa){
+        int suma = 0;
+        for (VehiculoTransporte vehiculoTransporte :this.listaVehiculoTransporte){
+            if(vehiculoTransporte.getPlaca().equals(placa)){
+                suma += vehiculoTransporte.getListaUsuariosAsociados().size();
+            }
+        }
+        return suma;
+    }
+
+    public int calcularMayoresEdad(){
+        int contador = 0;
+        for (Usuario usuario :this.listaUsuario){
+            if (usuario.getEdad() >= 18){
+                contador++;
+            }
+        }
+        return contador;
     }
 }

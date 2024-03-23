@@ -27,6 +27,6 @@ public class VehiculoTransporte extends Vehiculo{
     public String toString() {
         return super.toString() + '\n' + "VehiculoTransporte: " +
                 "maxNumPasajeros = " + maxNumPasajeros +
-                ", listaUsuariosAsociados = " + listaUsuariosAsociados;
+                ", listaUsuarioAsociados = " + listaUsuariosAsociados;
     }
 }
